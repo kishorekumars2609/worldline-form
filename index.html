@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<htmlL lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Form</title>
+</head>
+<body  class="bg-blue-500">
+    <form class="formbody">
+        <label for="Fname" >First Name</label>
+        <input class="formin" type="text" name="Firstname" placeholder="First name">
+        <br>
+        <label for="Lname">Last Name</label>
+        <input class="formin" type="text" name="Lastname" placeholder="Last name">
+        <br>
+        <label for="email">email</label>
+        <input class="formin" type="email" name="email" placeholder="email">
+        <br>
+        <label for="number">Phone number</label>
+        <input class="formin" type="tel" name="phoneNumber" placeholder="Phone number">
+        <br>
+        <label for="dob">Date of Birth</label>
+        <input class="formin" type="text" name="dob" placeholder="Date of birth">
+        <br>
+        <label for="gender">Gender</label>
+        <input class="formin" type="text" name="gender" placeholder="Gender">
+        <br>
+        <label for="address">Address</label>
+        <input class="formin" type="text" name="address" placeholder="Address">
+        <br>
+        <label for="city">City</label>
+        <input class="formin" type="text" name="city" placeholder="City">
+        <br>
+        <label for="state">State</label>
+        <input class="formin" type="text" name="state" placeholder="State">
+        <br>
+        <label for="zip">Zip Code</label>
+        <input class="formin" type="text" name="zip" placeholder="zip">
+        <br>
+        <label for="country">Country</label>
+        <input class="formin" type="text" name="country" placeholder="country">
+        <br>
+        <button  class="nextbt" type="submit">Submit</button>
+        <button  class="nextbt">
+            <a href="/data.html">Show data</a>
+        </button>
+    </form>
+    <script>
+        const post=async(data)=>{
+            const res=await fetch('http://localhost:3000',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify(data)
+            });
+            const postResp=await res.json();
+            console.log(postResp);
+        }
+        const form=document.querySelector('form')
+        form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            const formData=new FormData(form);
+            const data=Object.fromEntries(formData);
+            post(data);          
+        })
+        
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+
+    <title>Document</title>
+</head>
+<body>
+
+     <form class="formbody">
+        <label for="Fname" >First Name</label>
+        <input class="formin" type="text" name="firstname" placeholder="First name">
+        <br>
+        <label  for="Lname">Last Name</label>
+        <input class="formin" type="text" name="lastname" placeholder="Last name">
+        <br>
+        <label for="email">email</label>
+        <input class="formin" type="email" name="email" placeholder="email">
+        <br>
+        <label for="number">Phone number</label>
+        <input class="formin" type="tel" name="phonenumber" placeholder="Phone number">
+        <br>
+        <label for="dob">Date of Birth</label>
+        <input class="formin" type="text" name="dob" placeholder="Date of birth">
+        <br>
+        <label for="gender">Gender</label>
+        <input class="formin" type="text" name="gender" placeholder="Gender">
+
+        <lable for="'gender"> Gender</lable>
+        <select  class="formin">
+             <option>male</option>
+            <option>female</option>
+        </select>
+        <br> -->
+        <!-- <br>
+        <label for="address">Address </label>
+        <input class="formin" type="text" name="address" placeholder="Address">
+        <br>
+        <label for="city">City</label>
+        <input class="formin" type="text" name="city" placeholder="City">
+        <br>
+        <label for="state">State</label>
+        <input class="formin" type="text" name="state" placeholder="State">
+        <br>
+        <label for="zip">Zip Code</label>
+        <input class="formin" type="text" name="zipcode" placeholder="zip">
+        <br>
+        <label for="country">Country</label>
+        <input class="formin" type="text" name="country" placeholder="country">
+        <br>
+        <button type="submit">Submit</button>
+        <button type="submit" class="nextbt">
+        <a href='/data.html'>
+        View Data
+        </a>
+        </button>
+
+    </form>
+
+    <script>
+
+        const post = async  (data)=>{
+            const result= await fetch('http://localhost:3000',{
+                method:'post',
+                body:JSON.stringify(data)
+            });
+            console.log(result.json())
+        }
+
+const form=document.querySelector('form')
+form.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    const formData=new FormData(form);
+    const data=Object.fromEntries(formData);
+    post(data);          
+})
+
+    </script>
+    
+</body>
+</html>  --> 
+
+
+<!-- const post=async(data)=>{
+    const res=await fetch('http://localhost:3000',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(data)
+    });
+    const postResp=await res.json();
+    console.log(postResp);
+} -->
